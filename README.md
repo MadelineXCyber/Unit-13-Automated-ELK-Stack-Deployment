@@ -134,7 +134,7 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 - Filebeat
-- Metricbeat.
+- Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 
