@@ -209,7 +209,7 @@ Additional diagrams featuring each of the networks in Azure can be found by foll
 ### Linux Commands
 
 
-##LINUX COMMANDS: All commands used to create the ELK Stack deployment
+LINUX COMMANDS: All commands used to create the ELK Stack deployment
 
 [Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129713/Linux.commands.-.ELK.Stack.deployment.pdf)
 
@@ -234,7 +234,7 @@ awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulett
 
 
 
-##LINUX COMMANDS: WK 4 Linux Systems Administration
+LINUX COMMANDS: WK 4 Linux Systems Administration
 
 Command to inspect permissions: ls -l shadow
 
