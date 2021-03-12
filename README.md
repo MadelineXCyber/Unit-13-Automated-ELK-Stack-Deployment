@@ -1,15 +1,16 @@
 ## Automated ELK Stack Deployment
 
 This READ ME document contains the following details:
-•	Description of the Topology
-•	Access Policies
-•	ELK Configuration
-  o	Beats in Use
-  o	Machines Being Monitored
-•	How to Use the Ansible Build
+- Description of the Topology
+- Access Policies
+- ELK Configuration
+	- Beats in Use
+	- Machines Being Monitored
+- How to Use the Ansible Build
 
 
-Network configuration
+
+### Network Configuration
 
 The files in this repository were used to configure the network depicted below.
 
@@ -21,14 +22,14 @@ All files have been tested and used to generate a live ELK deployment on Azure. 
 
 The playbooks used for this deployment are as follows:
 
-•	Ansible configuration file
-•	Ansible hosts file
-•	Configure ELK VM with docker
-•	Configure Web VM with Docker
-•	Filebeat configuration file
-•	FIlebeat playbook
-•	Metricbeat configuration file
-•	Metricbeat playbook
+- Ansible configuration file
+- Ansible hosts file
+- Configure ELK VM with docker
+- Configure Web VM with Docker
+- Filebeat configuration file
+- FIlebeat playbook
+- Metricbeat configuration file
+- Metricbeat playbook
 
 LINKS
 
