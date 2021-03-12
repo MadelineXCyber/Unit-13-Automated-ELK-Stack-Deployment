@@ -1,6 +1,8 @@
 ## Automated ELK Stack Deployment
 
 This READ ME document contains the following details:
+
+- Network Configuration
 - Description of the Topology
 - Access Policies
 - ELK Configuration
