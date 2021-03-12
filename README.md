@@ -132,11 +132,15 @@ We have installed the following Beats on these machines:
 These Beats allow us to collect the following information from each machine:
 
 - Filebeat is used to monitor specific log files or locations, as specified by the user.   Filebeat collates and organises this data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes in data by monitoring the file system and specific logs – see sample of system log activity below.  As it is specific to a particular machine, Filebeat must be installed on each individual VM/server to be monitored.
-INSERT IMAGE
+
+<img width="1355" alt="filebeat_image" src="https://user-images.githubusercontent.com/80297522/110933249-a1e31b00-8380-11eb-891e-3b879a865bf9.png">
+
 
 - Metricbeat collects and records the metrics of a machine from the operating system and services running on the server, for example CPU and memory usage and container information (see below). These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity.  As with Filebeat, Metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
 
-INSEFRT IMAGE
+
+
+<img width="1366" alt="metricbeat_image" src="https://user-images.githubusercontent.com/80297522/110933289-ac9db000-8380-11eb-914d-af51df1e6569.png">
 
 
 
@@ -152,12 +156,16 @@ SSH into the control node and follow the steps below:
 	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
 
 - Run the playbook.
-INSERT PLAYBOOK
+
+<img width="863" alt="filebeat_playbook_image" src="https://user-images.githubusercontent.com/80297522/110933350-be7f5300-8380-11eb-8830-3cfdb9e69b9c.png">
+
 
 Navigate to the Filebeat installation page on the ELK server GUI using the ELK-VM public IP (http://: 40.87.108.196/app/kibana) to check that the installation worked as expected.
 
 Take a screenshot of the result. 
-SCREENSHOT
+
+<img width="1402" alt="kibana-homepage" src="https://user-images.githubusercontent.com/80297522/110933378-cb03ab80-8380-11eb-8f80-273a4b92d100.png">
+
 
 
 ### Bonus
