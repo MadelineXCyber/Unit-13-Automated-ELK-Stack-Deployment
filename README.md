@@ -208,6 +208,12 @@ Additional diagrams featuring each of the networks in Azure can be found by foll
 
 ### Linux Commands
 
+
+##LINUX COMMANDS: All commands used to create the ELK Stack deployment
+
+[Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129713/Linux.commands.-.ELK.Stack.deployment.pdf)
+
+
 ##LINUX COMMANDS: WK 3 Lucky Duck
 
 Roulette_dealer_finder_by_time_sh
