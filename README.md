@@ -214,6 +214,7 @@ Additional diagrams featuring each of the networks in Azure can be found by foll
 [Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129713/Linux.commands.-.ELK.Stack.deployment.pdf)
 
 
+
 ##LINUX COMMANDS: WK 3 Lucky Duck
 
 Roulette_dealer_finder_by_time_sh
@@ -273,8 +274,6 @@ Command to run an audit: sudo lynis audit system
 
 
 
-##[Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129661/Bonus.question.pdf)
-[Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129664/Bonus.question.pdf)
 LINUX COMMANDS: WK 5 Archiving and Logging Data
 
 Command to extract the TarDocs.tar archive to the current directory:  tar xvvf TarDocs.tar
