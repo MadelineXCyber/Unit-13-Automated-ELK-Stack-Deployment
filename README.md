@@ -15,6 +15,7 @@ This READ ME document contains the following details:
 The files in this repository were used to configure the network depicted below.
 
 
+
 <img width="656" alt="ELK Stack network config diagram copy" src="https://user-images.githubusercontent.com/80297522/110932706-ee7a2680-837f-11eb-92cc-4ba377265aa8.png">
 
 
@@ -105,6 +106,10 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - There is less room for human error using automation.  This is particularly important when configuring multiple machines which require identical configuration.
 - An automated process is much easier to use and less time consuming than configuration through a manual process, which generally requires configuration one machine at a time.
 
+We used the following playbook to configure the ELK machine: 
+
+<img width="676" alt="elk_config_image" src="https://user-images.githubusercontent.com/80297522/110934032-99d7ab00-8381-11eb-82eb-ff1caba0b542.png">
+
 
 The playbook used implements the following tasks:
 - Install the docker package, docker.io, python3-pip (the package-management system written in Python which is used to install and manage software packages) and docker.
@@ -155,7 +160,7 @@ SSH into the control node and follow the steps below:
 	Configure Elasticsearch output at line 1106: hosts: ["10.0.0.4:9200"]
 	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
 
-- Run the playbook.
+- Run the playbook: filebeat-playbook.yml.
 
 <img width="863" alt="filebeat_playbook_image" src="https://user-images.githubusercontent.com/80297522/110933350-be7f5300-8380-11eb-8830-3cfdb9e69b9c.png">
 
@@ -173,32 +178,35 @@ Take a screenshot of the result.
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
 
-Additional material
+See: [Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129666/Bonus.question.pdf)
 
-DIAGRAMS
+
+
+### Additional Material
+
+##DIAGRAMS
 Additional diagrams featuring each of the networks in Azure can be found by following these links:
 
 - Azure Network Watcher Topology - Red Team Resource Group.png 
 
- 
-IMAGE
+<img width="1343" alt="Azure Network Watcher Topology - Red Team Resource Group" src="https://user-images.githubusercontent.com/80297522/110933687-32b9f680-8381-11eb-9c5e-933343074ae5.png">
 
 
 - Azure Network Watcher Topology - Red Team VNet.png
 
-IMAGE
+<img width="1115" alt="Azure Network Watcher Topology - Red Team VNet" src="https://user-images.githubusercontent.com/80297522/110933704-3a799b00-8381-11eb-8eea-1c73583067fd.png">
+
  
 
 - Azure Network Watcher Topology - ELK-VM VNet.png
 
- IMAGE
-
+<img width="511" alt="Azure Network Watcher Topology - ELK-VM VNet" src="https://user-images.githubusercontent.com/80297522/110933725-3f3e4f00-8381-11eb-82a4-b750af9a242b.png">
 
 
 
 ### Linux Commands
 
-LINUX COMMANDS: WK 3 Lucky Duck
+##LINUX COMMANDS: WK 3 Lucky Duck
 
 Roulette_dealer_finder_by_time_sh
 #!/bin/bash
@@ -217,7 +225,7 @@ awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulett
 
 
 
-LINUX COMMANDS: WK 4 Linux Systems Administration
+##LINUX COMMANDS: WK 4 Linux Systems Administration
 
 Command to inspect permissions: ls -l shadow
 
@@ -257,6 +265,8 @@ Command to run an audit: sudo lynis audit system
 
 
 
+##[Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129661/Bonus.question.pdf)
+[Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129664/Bonus.question.pdf)
 LINUX COMMANDS: WK 5 Archiving and Logging Data
 
 Command to extract the TarDocs.tar archive to the current directory:  tar xvvf TarDocs.tar
