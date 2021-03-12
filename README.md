@@ -159,8 +159,8 @@ SSH into the control node and follow the steps below:
 - Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
 
 - Update the filebeat-config.yml file to include the ELK-VM IP details at lines 1106 and 1806, as follows:
-	Configure Elasticsearch output at line 1106: hosts: ["10.0.0.4:9200"]
-	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
+	- 	Configure Elasticsearch output at line 1106: hosts: ["10.0.0.4:9200"]
+	- 	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
 
 - Run the playbook: filebeat-playbook.yml.
 
@@ -175,6 +175,7 @@ Take a screenshot of the result.
 
 
 
+
 ### Bonus
 
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
@@ -184,9 +185,11 @@ See: [Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-EL
 
 
 
+
 ### Additional Material
 
-##DIAGRAMS
+DIAGRAMS
+
 Additional diagrams featuring each of the networks in Azure can be found by following these links:
 
 - Azure Network Watcher Topology - Red Team Resource Group.png 
