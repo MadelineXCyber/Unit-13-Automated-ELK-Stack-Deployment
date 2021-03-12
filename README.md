@@ -14,7 +14,7 @@ This READ ME document contains the following details:
 
 The files in this repository were used to configure the network depicted below.
 
-IMAGE
+![https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/426fbc01d56d5ce4506ad065cebce951525a49b7/README/Images/ELK%20Stack%20network%20config%20diagram%20copy.png](Images/ELK Stack network config diagram copy.png)
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
 
