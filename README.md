@@ -206,16 +206,16 @@ Additional diagrams featuring each of the networks in Azure can be found by foll
 
 
 
-### Linux Commands
+### LINUX COMMANDS
 
 
-LINUX COMMANDS: All commands used to create the ELK Stack deployment
+### Linux Commands: All commands used to create the ELK Stack deployment
 
 [Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129713/Linux.commands.-.ELK.Stack.deployment.pdf)
 
 
 
-##LINUX COMMANDS: WK 3 Lucky Duck
+### Linux Commands: WK 3 Lucky Duck
 
 Roulette_dealer_finder_by_time_sh
 #!/bin/bash
@@ -234,7 +234,7 @@ awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulett
 
 
 
-LINUX COMMANDS: WK 4 Linux Systems Administration
+### Linux Commands: WK 4 Linux Systems Administration
 
 Command to inspect permissions: ls -l shadow
 
@@ -274,7 +274,7 @@ Command to run an audit: sudo lynis audit system
 
 
 
-LINUX COMMANDS: WK 5 Archiving and Logging Data
+### Linux Commands: WK 5 Archiving and Logging Data
 
 Command to extract the TarDocs.tar archive to the current directory:  tar xvvf TarDocs.tar
 
