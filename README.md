@@ -34,7 +34,7 @@ The playbooks used for this deployment are as follows:
 - Metricbeat configuration file
 - Metricbeat playbook
 
-TO DO!!!!
+Copies of all playbooks above are available by following this link: 
 
 
 ### Description of the Topology
