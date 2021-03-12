@@ -14,7 +14,9 @@ This READ ME document contains the following details:
 
 The files in this repository were used to configure the network depicted below.
 
-![https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/README/Images/ELK%20Stack%20network%20config%20diagram%20copy.png](Images/ELK Stack network config diagram copy.png)
+
+<img width="656" alt="ELK Stack network config diagram copy" src="https://user-images.githubusercontent.com/80297522/110932706-ee7a2680-837f-11eb-92cc-4ba377265aa8.png">
+
 
 All files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -29,7 +31,7 @@ The playbooks used for this deployment are as follows:
 - Metricbeat configuration file
 - Metricbeat playbook
 
-LINKS
+TO DO!!!!
 
 
 ### Description of the Topology
@@ -113,8 +115,9 @@ The playbook used implements the following tasks:
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance
 
+<img width="1119" alt="sudo_docker_ps" src="https://user-images.githubusercontent.com/80297522/110933137-7b24e480-8380-11eb-91a0-e19ac2581037.png">
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
