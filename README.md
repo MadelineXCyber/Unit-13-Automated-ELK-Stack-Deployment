@@ -38,26 +38,26 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 The network topology above includes load balancing which ensures that the application will be highly available, in addition to restricting traffic flow and access to the network. 
 
-•	A Load Balancer is used to harden the network by protecting its availability and adding resilience to the overall system.   By incorporating a Load Balancer into our network architecture, all incoming traffic – in our case HTTP requests – is initially routed to a single point at the Load Balancer’s external frontend, before being redistributed to our 3 internal web servers (Web-1, Web-2 and Web-3) in the backend pool.  As the purpose of Load Balancers is to manage network traffic and divide it between the backend servers based on traffic flow, this helps to ensure maximum reliability and uptime of the network and provides critical redundancy to the system.  Load Balancers also undertake network ‘health checks’ and have the ability to incorporate specific security rules, both important measures in providing additional safeguards and security to the network.
+- Load Balancer: A Load Balancer is used to harden the network by protecting its availability and adding resilience to the overall system.   By incorporating a Load Balancer into our network architecture, all incoming traffic – in our case HTTP requests – is initially routed to a single point at the Load Balancer’s external frontend, before being redistributed to our 3 internal web servers (Web-1, Web-2 and Web-3) in the backend pool.  As the purpose of Load Balancers is to manage network traffic and divide it between the backend servers based on traffic flow, this helps to ensure maximum reliability and uptime of the network and provides critical redundancy to the system.  Load Balancers also undertake network ‘health checks’ and have the ability to incorporate specific security rules, both important measures in providing additional safeguards and security to the network.
 
-•	This network also includes a Jump Box VM, an administration server which acts as an intermediary or SSH host to the internal network, once again by managing and controlling access to the internal network.  An additional advantage of the Jump Box is that it is an intelligent device and can also be used as a control panel to perform critical functions such as system configurations and updates.   In order to set up this particular network, the Jump Box was used to install Docker containers on our Web-VMs and then run an Ansible playbook to configure the Web-VMs with DVWA container images.  Our Jump Box VM was also used to setup and configure a VM as an ELK server (to run an ELK Stack container) using Ansible.
+- Jump Box: This network also includes a Jump Box VM, an administration server which acts as an intermediary or SSH host to the internal network, once again by managing and controlling access to the internal network.  An additional advantage of the Jump Box is that it is an intelligent device and can also be used as a control panel to perform critical functions such as system configurations and updates.   In order to set up this particular network, the Jump Box was used to install Docker containers on our Web-VMs and then run an Ansible playbook to configure the Web-VMs with DVWA container images.  Our Jump Box VM was also used to setup and configure a VM as an ELK server (to run an ELK Stack container) using Ansible.
 
 Incorporating an ELK server into the network allows users to easily monitor the vulnerable VMs for changes to the network activity and system logs.
 
 This is achieved using ELK Stack, a powerful, open-source tool used to store, search, analyse and visualise many different forms of data.  ELK is an acronym for the 3 components which make up Elastic Stack - Elasticsearch, Logstash and Kibana.
 
-•	ELASTICSEARCH is a powerful tool which allows the user to store, search and analyse data.  It has the ability to handle huge volumes of data in almost real-time ie. milliseconds. 
+- ELASTICSEARCH is a powerful tool which allows the user to store, search and analyse data.  It has the ability to handle huge volumes of data in almost real-time ie. milliseconds. 
 
-•	LOGSTASH is a data processing pipeline that collects log data from different sources, converting different log data into a uniform format if necessary.  It is used to feed data to Elasticsearch. 
+- LOGSTASH is a data processing pipeline that collects log data from different sources, converting different log data into a uniform format if necessary.  It is used to feed data to Elasticsearch. 
 
-•	KIBANA is a tool used to visualise data indexed in Elasticsearch.  The user can generate a variety of charts, graphs, maps and metrics using Kibana’s complex dashboard.
+- KIBANA is a tool used to visualise data indexed in Elasticsearch.  The user can generate a variety of charts, graphs, maps and metrics using Kibana’s complex dashboard.
 
 
 Due to the significant amount of information potentially contained in the Elasticsearch log database, a tool known as ‘Beats’ is now available as part of the ELK Stack suite to allow collection of specific data and information.  There are 8 official Beats in total, two of which are used in this deployment – Filebeat and Metricbeat (see also ‘Target Machines & Beats’ below).
 
-•	Filebeat is used to monitor specific log files or locations, as specified by the user.  Filebeat collates and organises the requested data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes by monitoring the file system and specific logs.  As it is specific to a particular machine, filebeat must be installed on each individual VM/server to be monitored.
+- Filebeat is used to monitor specific log files or locations, as specified by the user.  Filebeat collates and organises the requested data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes by monitoring the file system and specific logs.  As it is specific to a particular machine, filebeat must be installed on each individual VM/server to be monitored.
 
-•	Metricbeat collects and records the metrics of a machine from the operating system and services running on the server.  These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity, for example CPU usage and uptime.  As with filebeat, metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
+- Metricbeat collects and records the metrics of a machine from the operating system and services running on the server.  These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity, for example CPU usage and uptime.  As with filebeat, metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
 
 
 Our final network topology consists of a Jump Box VM, 3 Web Servers and an ELK-VM.  The configuration details of each machine may be found below. 
@@ -78,11 +78,11 @@ Our final network topology consists of a Jump Box VM, 3 Web Servers and an ELK-V
 The machines on the internal network are not exposed to the public Internet.
 
 Only the Jump Box VM and Load Balancer machines can accept connections from the Internet.  Access to these machines is only allowed from the following IP address:
-•	My local host machine with public (*dynamic) IP: 175.32.150.11
+- My local host machine with public (*dynamic) IP: 175.32.150.11
 
 Machines within the network can only be accessed by the Jump Box.
-•	The Jump Box VM can access the ELK VM through the internal network.
-•	My local host machine can access the ELK VM using its external IP.
+- The Jump Box VM can access the ELK VM through the internal network.
+- My local host machine can access the ELK VM using its external IP.
 
 A summary of the access policies in place can be found in the table below.
 
@@ -94,21 +94,22 @@ A summary of the access policies in place can be found in the table below.
 | Web-3       | No                  | Jump Box VM: 10.1.0.4 Load Balancer: 13.72.251.150                                                      |
 | ELK-VM      | Yes                 | My host machine: 175.32.150.11 Web-1: 10.1.0.5  Web-2: 10.1.0.6  Web-3: 10.1.0.7  Jump Box VM: 10.1.0.4 |
 
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-•	Automated configuration streamlines and simplifies network and system configurations as it allows us to execute complex and multiple commands/scripts in one command.
-•	Automated configuration allows us to configure multiple servers/machines identically, and simultaneously.
-•	There is less room for human error using automation.  This is particularly important when configuring multiple machines which require identical configuration.
-•	An automated process is much easier to use and less time consuming than configuration through a manual process, which generally requires configuration one machine at a time.
+- Automated configuration streamlines and simplifies network and system configurations as it allows us to execute complex and multiple commands/scripts in one command.
+- Automated configuration allows us to configure multiple servers/machines identically, and simultaneously.
+- There is less room for human error using automation.  This is particularly important when configuring multiple machines which require identical configuration.
+- An automated process is much easier to use and less time consuming than configuration through a manual process, which generally requires configuration one machine at a time.
 
 
 The playbook used implements the following tasks:
-•	Install the docker package, docker.io, python3-pip (the package-management system written in Python which is used to install and manage software packages) and docker.
-•	Configure the target machine to use more virtual memory when running the ELK container
-•	Install the docker module using python3-pip.
-•	Download and launch the docker ELK container, sebp/elk:761.  The image should be start using three specific port mappings: 5601:5601, 9200:9200 and 5044:5044.
-•	Use the systemd module to configure automatic restart of the docker service when the machine reboots.
+- Install the docker package, docker.io, python3-pip (the package-management system written in Python which is used to install and manage software packages) and docker.
+- Configure the target machine to use more virtual memory when running the ELK container
+- Install the docker module using python3-pip.
+- Download and launch the docker ELK container, sebp/elk:761.  The image should be start using three specific port mappings: 5601:5601, 9200:9200 and 5044:5044.
+- Use the systemd module to configure automatic restart of the docker service when the machine reboots.
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance
 
@@ -117,35 +118,37 @@ The following screenshot displays the result of running docker ps after successf
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-•	Web-1: 10.1.0.5
-•	Web-2: 10.1.0.6
-•	Web-3: 10.1.0.7
+- Web-1: 10.1.0.5
+- Web-2: 10.1.0.6
+- Web-3: 10.1.0.7
 
 We have installed the following Beats on these machines:
-•	Filebeat
-•	Metricbeat.
+- Filebeat
+- Metricbeat.
 
 These Beats allow us to collect the following information from each machine:
 
-•	Filebeat is used to monitor specific log files or locations, as specified by the user.   Filebeat collates and organises this data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes in data by monitoring the file system and specific logs – see sample of system log activity below.  As it is specific to a particular machine, Filebeat must be installed on each individual VM/server to be monitored.
+- Filebeat is used to monitor specific log files or locations, as specified by the user.   Filebeat collates and organises this data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes in data by monitoring the file system and specific logs – see sample of system log activity below.  As it is specific to a particular machine, Filebeat must be installed on each individual VM/server to be monitored.
 INSERT IMAGE
 
-•	Metricbeat collects and records the metrics of a machine from the operating system and services running on the server, for example CPU and memory usage and container information (see below). These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity.  As with Filebeat, Metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
+- Metricbeat collects and records the metrics of a machine from the operating system and services running on the server, for example CPU and memory usage and container information (see below). These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity.  As with Filebeat, Metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
 
 INSEFRT IMAGE
+
+
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
 
-•	Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
+- Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
 
-•	Update the filebeat-config.yml file to include the ELK-VM IP details at lines 1106 and 1806, as follows:
-o	Configure Elasticsearch output at line 1106: hosts: ["10.0.0.4:9200"]
-o	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
+- Update the filebeat-config.yml file to include the ELK-VM IP details at lines 1106 and 1806, as follows:
+	Configure Elasticsearch output at line 1106: hosts: ["10.0.0.4:9200"]
+	Kibana endpoint configuration at line 1806: host: "10.0.0.4:5601"
 
-•	Run the playbook.
+- Run the playbook.
 INSERT PLAYBOOK
 
 Navigate to the Filebeat installation page on the ELK server GUI using the ELK-VM public IP (http://: 40.87.108.196/app/kibana) to check that the installation worked as expected.
@@ -153,7 +156,8 @@ Navigate to the Filebeat installation page on the ELK server GUI using the ELK-V
 Take a screenshot of the result. 
 SCREENSHOT
 
-Bonus
+
+### Bonus
 
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
@@ -163,25 +167,25 @@ Additional material
 DIAGRAMS
 Additional diagrams featuring each of the networks in Azure can be found by following these links:
 
-•	Azure Network Watcher Topology - Red Team Resource Group.png 
+- Azure Network Watcher Topology - Red Team Resource Group.png 
 
  
 IMAGE
 
 
-•	Azure Network Watcher Topology - Red Team VNet.png
+- Azure Network Watcher Topology - Red Team VNet.png
 
 IMAGE
  
 
-•	Azure Network Watcher Topology - ELK-VM VNet.png
+- Azure Network Watcher Topology - ELK-VM VNet.png
 
  IMAGE
 
 
 
 
-LINUX COMMANDS
+### Linux Commands
 
 LINUX COMMANDS: WK 3 Lucky Duck
 
@@ -199,6 +203,7 @@ grep 'AM\|PM' *_Dealer_schedule > finder.dealer1
 grep $1_Dealer finder.dealer1 > finder.dealer2
 grep schedule:$2 finder.dealer2 > finder.dealer3
 awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulette_dealer_finder_by_time_and_game
+
 
 
 LINUX COMMANDS: WK 4 Linux Systems Administration
@@ -238,6 +243,7 @@ Command to install Lynis: sudo apt install lynis
 Command to see documentation and instructions: man lynis; sudo lynis show help
 
 Command to run an audit: sudo lynis audit system
+
 
 
 LINUX COMMANDS: WK 5 Archiving and Logging Data
