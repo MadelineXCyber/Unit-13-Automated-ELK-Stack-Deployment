@@ -24,7 +24,7 @@ The files in this repository were used to configure the network depicted below.
 <img width="656" alt="ELK Stack network config diagram copy" src="https://user-images.githubusercontent.com/80297522/110932706-ee7a2680-837f-11eb-92cc-4ba377265aa8.png">
 
 
-All files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml files may be used to install only certain pieces of it, such as Filebeat.
+All files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
 
 The playbooks used for this deployment are as follows:
 
