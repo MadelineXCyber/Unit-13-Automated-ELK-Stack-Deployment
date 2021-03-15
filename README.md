@@ -14,7 +14,7 @@ This READ ME document contains the following details:
 
 
 
-### Network Configuration
+## Network Configuration
 
 The files in this repository were used to configure the network depicted below.
 
@@ -35,7 +35,7 @@ The playbooks used for this deployment are as follows:
 Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/tree/main/Ansible
 
 
-### Description of the Topology
+## Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.  The DVWA site allows the cybersecurity industry to develop, learn and test security tools and skills in a legal environment. 
 
@@ -76,7 +76,7 @@ Our final network topology consists of a Jump Box VM, 3 Web Servers and an ELK-V
 
 
 
-### Access Policies
+## Access Policies
 
 
 The machines on the internal network are not exposed to the public Internet.
@@ -101,7 +101,7 @@ A summary of the access policies in place can be found in the table below.
 
 
 
-### Elk Configuration
+## Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - Automated configuration streamlines and simplifies network and system configurations as it allows us to execute complex and multiple commands/scripts in one command.
@@ -127,7 +127,7 @@ The following screenshot displays the result of running docker ps after successf
 
 
 
-### Target Machines & Beats
+## Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - Web-1: 10.1.0.5
 - Web-2: 10.1.0.6
@@ -152,7 +152,7 @@ These Beats allow us to collect the following information from each machine:
 
 
 
-### Using the Playbook
+## Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
@@ -177,7 +177,7 @@ Take a screenshot of the result.
 
 
 
-### Bonus
+## Bonus
 
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
@@ -186,7 +186,7 @@ See: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/
 
 
 
-### ADDITIONAL MATERIAL
+## ADDITIONAL MATERIAL
 
 
 ### Diagrams
