@@ -28,7 +28,7 @@ All files have been tested and used to generate a live ELK deployment on Azure. 
 The playbooks used for this deployment are as follows:
 
 - Configure ELK VM with docker: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Config%20Web%20VM%20with%20Docker
-- Configure Web VM with Docker
+- Configure Web VM with Docker: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Config%20Web%20VM%20with%20Docker
 - FIlebeat playbook
 - Metricbeat playbook
 
