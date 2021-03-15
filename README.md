@@ -32,7 +32,7 @@ The playbooks used for this deployment are as follows:
 - FIlebeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Filebeat%20playbook
 - Metricbeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Metricbeat%20playbook
 
-Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/tree/main/Ansible
+Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/tree/main/Ansible
 
 
 ## Description of the Topology
