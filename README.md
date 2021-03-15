@@ -30,7 +30,7 @@ The playbooks used for this deployment are as follows:
 - Configure ELK VM with docker: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Configure%20ELK%20VM%20with%20docker
 - Configure Web VM with Docker: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Config%20Web%20VM%20with%20Docker
 - FIlebeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Filebeat%20playbook
-- Metricbeat playbook
+- Metricbeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Metricbeat%20playbook
 
 Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/tree/main/Ansible
 
