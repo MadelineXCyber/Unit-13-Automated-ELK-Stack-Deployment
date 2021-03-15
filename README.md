@@ -14,6 +14,7 @@ This READ ME document contains the following details:
 
 
 
+
 ## Network Configuration
 
 The files in this repository were used to configure the network depicted below.
@@ -32,7 +33,9 @@ The playbooks used for this deployment are as follows:
 - FIlebeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Filebeat%20playbook
 - Metricbeat playbook: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Ansible/Metricbeat%20playbook
 
+
 Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/tree/main/Ansible
+
 
 
 ## Description of the Topology
