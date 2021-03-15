@@ -1,3 +1,5 @@
+# TAKE-2-ELK-Stack-Deployment-Unit-13
+
 ## Automated ELK Stack Deployment
 
 This READ ME document contains the following details:
@@ -25,16 +27,12 @@ All files have been tested and used to generate a live ELK deployment on Azure. 
 
 The playbooks used for this deployment are as follows:
 
-- Ansible configuration file
-- Ansible hosts file
-- Configure ELK VM with docker
+- Configure ELK VM with docker: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Ansible/Configure%20ELK%20VM%20with%20Docker
 - Configure Web VM with Docker
-- Filebeat configuration file
 - FIlebeat playbook
-- Metricbeat configuration file
 - Metricbeat playbook
 
-Copies of all playbooks above are available by following this link: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/tree/main/Ansible
+Copies of all configuration files and playbooks used in this deployment are available in the Ansible folder: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/tree/main/Ansible
 
 
 ### Description of the Topology
@@ -60,20 +58,21 @@ This is achieved using ELK Stack, a powerful, open-source tool used to store, se
 
 Due to the significant amount of information potentially contained in the Elasticsearch log database, a tool known as ‘Beats’ is now available as part of the ELK Stack suite to allow collection of specific data and information.  There are 8 official Beats in total, two of which are used in this deployment – Filebeat and Metricbeat (see also ‘Target Machines & Beats’ below).
 
-- Filebeat is used to monitor specific log files or locations, as specified by the user.  Filebeat collates and organises the requested data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes by monitoring the file system and specific logs.  As it is specific to a particular machine, filebeat must be installed on each individual VM/server to be monitored.
+- Filebeat: Filebeat is used to monitor specific log files or locations, as specified by the user.  Filebeat collates and organises the requested data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes by monitoring the file system and specific logs.  As it is specific to a particular machine, filebeat must be installed on each individual VM/server to be monitored.
 
-- Metricbeat collects and records the metrics of a machine from the operating system and services running on the server.  These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity, for example CPU usage and uptime.  As with filebeat, metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
+- Metricbeat: Metricbeat collects and records the metrics of a machine from the operating system and services running on the server.  These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity, for example CPU usage and uptime.  As with filebeat, metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
 
 
 Our final network topology consists of a Jump Box VM, 3 Web Servers and an ELK-VM.  The configuration details of each machine may be found below. 
 
-| Name        | Function                                   | IP Address                                        | Operating System     |
-|-------------|--------------------------------------------|---------------------------------------------------|----------------------|
-| Jump Box VM | Gateway, intelligence Ansible control node | Public: 52.187.237.72 Private: 10.1.0.4           | Linux (Ubuntu 18.04) |
-| Web-1       | Internal web server DVWA container         | Public: Load balancer public IP Private: 10.1.0.5 | Linux (Ubuntu 18.04) |
-| Web-2       | Internal web server DVWA container         | Public: Load balancer public IP Private: 10.1.0.6 | Linux (Ubuntu 18.04) |
-| Web-3       | Internal web server DVWA container         | Public: Load balancer public IP Private: 10.1.0.7 | Linux (Ubuntu 18.04) |
-| ELK-VM      | Log server ELK Stack container             | Public: 40.87.108.196 Private: 10.0.0.4           | Linux (Ubuntu 18.04) |
+| Name        | Function                                          | IP Address                                            | Operating System     |
+|-------------|---------------------------------------------------|-------------------------------------------------------|----------------------|
+| Jump Box VM | Gateway <br>Intelligence <br>Ansible control node | Public: 52.187.237.72 <br>Private: 10.1.0.4           | Linux (Ubuntu 18.04) |
+| Web-1       | Internal web server <br>DVWA container            | Public: Load balancer public IP <br>Private: 10.1.0.5 | Linux (Ubuntu 18.04) |
+| Web-2       | Internal web server <br>DVWA container            | Public: Load balancer public IP <br>Private: 10.1.0.6 | Linux (Ubuntu 18.04) |
+| Web-3       | Internal web server <br>DVWA container            | Public: Load balancer public IP <br>Private: 10.1.0.7 | Linux (Ubuntu 18.04) |
+| ELK-VM      | Log server <br>ELK Stack container                | Public: 40.87.108.196 <br>Private: 10.0.0.4           | Linux (Ubuntu 18.04) |
+
 
 
 
@@ -91,13 +90,15 @@ Machines within the network can only be accessed by the Jump Box.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name        | Publicly Accessible | Allowed IP Addresses                                                                                    |
-|-------------|---------------------|---------------------------------------------------------------------------------------------------------|
-| Jump Box VM | Yes                 | My host machine: IP 175.32.150.11  Web-1: 10.1.0.5  Web-2: 10.1.0.6  Web-3: 10.1.0.7  ELK-VM: 10.0.0.4  |
-| Web-1       | No                  | Jump Box VM: 10.1.0.4 Load Balancer: 13.72.251.150                                                      |
-| Web-2       | No                  | Jump Box VM: 10.1.0.4 Load Balancer: 13.72.251.150                                                      |
-| Web-3       | No                  | Jump Box VM: 10.1.0.4 Load Balancer: 13.72.251.150                                                      |
-| ELK-VM      | Yes                 | My host machine: 175.32.150.11 Web-1: 10.1.0.5  Web-2: 10.1.0.6  Web-3: 10.1.0.7  Jump Box VM: 10.1.0.4 |
+| Name        | Publicly Accessible | Allowed IP Addresses                                                                                                |
+|-------------|---------------------|---------------------------------------------------------------------------------------------------------------------|
+| Jump Box VM | Yes                 | My host machine: IP 175.32.150.11 <br>Web-1: 10.1.0.5 <br>Web-2: 10.1.0.6 <br>Web-3: 10.1.0.7 <br>ELK-VM: 10.0.0.4  |
+| Web-1       | No                  | Jump Box VM: 10.1.0.4<br>Load Balancer: 13.72.251.150                                                               |
+| Web-2       | No                  | Jump Box VM: 10.1.0.4<br>Load Balancer: 13.72.251.150                                                               |
+| Web-3       | No                  | Jump Box VM: 10.1.0.4<br>Load Balancer: 13.72.251.150                                                               |
+| ELK-VM      | Yes                 | My host machine: 175.32.150.11<br>Web-1: 10.1.0.5 <br>Web-2: 10.1.0.6 <br>Web-3: 10.1.0.7 <br>Jump Box VM: 10.1.0.4 |
+
+
 
 
 ### Elk Configuration
@@ -138,12 +139,12 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 
-- Filebeat is used to monitor specific log files or locations, as specified by the user.   Filebeat collates and organises this data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes in data by monitoring the file system and specific logs – see sample of system log activity below.  As it is specific to a particular machine, Filebeat must be installed on each individual VM/server to be monitored.
+- Filebeat: Filebeat is used to monitor specific log files or locations, as specified by the user.   Filebeat collates and organises this data, which is then forwarded to Elasticsearch or Logstash for indexing.  Filebeat watches for changes in data by monitoring the file system and specific logs – see sample of system log activity below.  As it is specific to a particular machine, Filebeat must be installed on each individual VM/server to be monitored.
 
 <img width="1355" alt="filebeat_image" src="https://user-images.githubusercontent.com/80297522/110933249-a1e31b00-8380-11eb-891e-3b879a865bf9.png">
 
 
-- Metricbeat collects and records the metrics of a machine from the operating system and services running on the server, for example CPU and memory usage and container information (see below). These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity.  As with Filebeat, Metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
+- Metricbeat: Metricbeat collects and records the metrics of a machine from the operating system and services running on the server, for example CPU and memory usage and container information (see below). These metrics allow the user to assess such things as the health of a network, as well as monitoring for signs of suspicious activity.  As with Filebeat, Metricbeat is specific to a particular machine and must be installed on each individual VM/server which is being monitored.
 
 
 
@@ -181,14 +182,14 @@ Take a screenshot of the result.
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
 
-See: [Bonus question.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129666/Bonus.question.pdf)
+See: https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Images/Bonus%20question%20-%20Unit%2013%20ELK%20Stack%20Deployment.pdf
 
 
 
+### ADDITIONAL MATERIAL
 
-### Additional Material
 
-DIAGRAMS
+### Diagrams
 
 Additional diagrams featuring each of the networks in Azure can be found by following these links:
 
@@ -214,146 +215,23 @@ Additional diagrams featuring each of the networks in Azure can be found by foll
 
 ### Linux Commands: All commands used to create the ELK Stack deployment
 
-[Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/files/6129713/Linux.commands.-.ELK.Stack.deployment.pdf)
+[Linux commands - ELK Stack deployment.pdf](https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Linux/Linux%20commands%20-%20ELK%20Stack%20deployment.pdf)
 
 
 
 ### Linux Commands: WK 3 Lucky Duck
 
-Roulette_dealer_finder_by_time_sh
-#!/bin/bash
-grep 'AM\|PM' *_Dealer_schedule > roulette.dealer1
-awk -F' ' '{print $1, $2, $5, $6}' roulette.dealer1 > roulette.dealer2
-grep $1_Dealer roulette.dealer2 > roulette.dealer3
-grep schedule:$2 roulette.dealer3 > roulette.dealer4
-awk -F' ' '{print $2}' roulette.dealer4 | grep $3 roulette.dealer4 > results.roulette_dealer_finder_by_time
-
-Roulette_dealer_finder_by_time_and_game_sh
-#!/bin/bash
-grep 'AM\|PM' *_Dealer_schedule > finder.dealer1
-grep $1_Dealer finder.dealer1 > finder.dealer2
-grep schedule:$2 finder.dealer2 > finder.dealer3
-awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulette_dealer_finder_by_time_and_game
+https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Linux/LINUX%20COMMANDS:%20WK%203%20Lucky%20Duck
 
 
 
 ### Linux Commands: WK 4 Linux Systems Administration
 
-Command to inspect permissions: ls -l shadow
-
-Command to set permissions (if needed): sudo chmod 600 shadow
-
-Command to inspect permissions: ls -l gshadow
-
-Command to set permissions (if needed): sudo chmod 600 gshadow
-
-Command to inspect permissions: ls -l group
-
-Command to set permissions (if needed): sudo chmod 644 group
-
-Command to inspect permissions: ls -l passwd
-
-Command to set permissions (if needed): sudo chmod 644 passwd
-
-Command to add each user account (include all five users): sudo adduser sam
-
-Command to add admin to the sudo group: sudo usermod -G sudo admin 
-
-Command to add group: sudo addgroup engineers
-
-Command to add users to engineers group (include all four users):
-sudo usermod -aG engineers sam
-sudo usermod -G engineers joe
-
-Command to create the shared folder: sudo mkdir /home/engineers
-
-Command to change ownership of engineer's shared folder to engineer group: sudo chown sysadmin:engineers /home/engineers
-
-Command to install Lynis: sudo apt install lynis
-
-Command to see documentation and instructions: man lynis; sudo lynis show help
-
-Command to run an audit: sudo lynis audit system
+https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Linux/LINUX%20COMMANDS:%20WK%204%20Linux%20Systems%20Admin
 
 
 
 ### Linux Commands: WK 5 Archiving and Logging Data
 
-Command to extract the TarDocs.tar archive to the current directory:  tar xvvf TarDocs.tar
-
-Command to create the Javaless_Doc.tar archive from the TarDocs/ directory, while excluding the TarDocs/Documents/Java directory: tar cvvWf Javaless_Docs.tar --exclude=Java ~/Projects/TarDocs/Documents/
-
-Command to ensure Java/ is not in the new Javaless_Docs.tar archive: tar tvf Javaless_Docs.tar | grep Java
-
-Command to create an incremental archive called logs_backup_tar.gz with only changed files to snapshot.file for the /var/log directory:
-sudo tar czvf logs_backup_sun.tar.gz --listed-incremental=logs_backup.snar --level=0 /var/log
-sudo tar czvf logs_backup_mon.tar.gz --listed-incremental=logs_backup.snar /var/log
-sudo tar czvf logs_backup_tues.tar.gz --listed-incremental=logs_backup.snar /var/log
-
-Cron job for backing up the /var/log/auth.log file: 0 6 * * 3 tar -czf /var/log/auth_backup.tgz /var/log/auth.log
-
-Brace expansion command to create the four subdirectories: sudo mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
-
-System.sh script edits below:
-#!/bin/bash
-free -h > ~/backups/freemem/free_mem.txt
-du -h > ~/backups/diskuse/disk_usage.txt
-lsof > ~/backups/openlist/open_list.txt
-df -h > ~/backups/freedisk/free_disk.txt
-
-Command to make the system.sh script executable: sudo chmod +x system.sh
-
-Commands to test the script and confirm its execution:
-sudo ./system.sh
-cat ~/backups/freemem/free_mem.txt
-	cat ~/backups/diskuse/disk_usage.txt
-	cat ~/backups/openlist/open_list.txt
-	cat ~/backups/freedisk/free_disk.txt
-
-Command to copy system to system-wide cron directory: sudo cp system.sh /etc/cron.weekly/
-Configure a log rotation scheme that backs up authentication messages to the /var/log/auth.log.  Add your config file edits below:
- /var/log/auth.log {
-        missingok 
-        weekly
-        rotate 7
-        notifempty
-        compress
-        delaycompress
-        endscript
-} 
-
-Command to verify auditd is active: systemctl status auditd
-
-Command to set number of retained logs and maximum log file size.  Add the edits made to the configuration file below:
-num_logs = 7
-max_log_file = 35
-
-Command using auditd to set rules for /etc/shadow, /etc/passwd and /var/log/auth.log:  Add the edits made to the rules file below:
--w /etc/shadow -p wra -k hashpass_audit
--w /etc/passwd -p wra -k userpass_audit
--w /var/log/auth.log -p wra -k authlog_audit
-
-Command to restart auditd:sudo systemctl restart auditd
-
-Command to list all auditd rules: sudo auditctl -l
-
-Command to produce an audit report for all user authentications: sudo aureport -au
-
-Create a user with sudo useradd attacker and produce an audit report that lists account modifications: sudo aureport -m
-
-Command to use auditd to watch /var/log/cron: sudo auditctl -w /var/log/cron
-
-Command to verify auditd rules: sudo auditctl -l
-
-Command to return journalctl messages with priorities from emergency to error since the current system boot: sudo journalctl -p 3 -b
-
-Command to check the disk usage of the system journal unit since the most recent boot: sudo journalctl -u systemd-journald -b
-
-Command to remove all archived journal files except the most recent two: sudo journalctl --vacuum-files=2
-
-Command to filter all log messages with priority levels between zero and two, and save output to /home/sysadmin/Priority_High.txt: sudo journalctl -p 2 >> /home/sysadmin/Priority_High.txt
-
-Command to automate the last command in a daily cronjob. Add the edits made to the crontab file below: 0 0 * * * sudo journalctl -p 2 >> /home/sysadmin/Priority_High.txt 
-
-
+https://github.com/MadelineXCyber/TAKE-2-ELK-Stack-Deployment-Unit-13/blob/main/Linux/LINUX%20COMMANDS:%20WK%205%20Archiving%20and%20Loggi
 
