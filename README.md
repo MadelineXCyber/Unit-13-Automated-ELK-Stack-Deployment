@@ -38,6 +38,7 @@ Copies of all configuration files and playbooks used in this deployment are avai
 
 
 
+
 ## Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.  The DVWA site allows the cybersecurity industry to develop, learn and test security tools and skills in a legal environment. 
