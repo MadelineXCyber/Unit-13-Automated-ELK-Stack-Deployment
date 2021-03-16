@@ -1,0 +1,80 @@
+LINUX COMMANDS: WK 5 Archiving and Logging Data
+
+Command to extract the TarDocs.tar archive to the current directory:  tar xvvf TarDocs.tar
+
+Command to create the Javaless_Doc.tar archive from the TarDocs/ directory, while excluding the TarDocs/Documents/Java directory: tar cvvWf Javaless_Docs.tar --exclude=Java ~/Projects/TarDocs/Documents/
+
+Command to ensure Java/ is not in the new Javaless_Docs.tar archive: tar tvf Javaless_Docs.tar | grep Java
+
+Command to create an incremental archive called logs_backup_tar.gz with only changed files to snapshot.file for the /var/log directory:
+sudo tar czvf logs_backup_sun.tar.gz --listed-incremental=logs_backup.snar --level=0 /var/log
+sudo tar czvf logs_backup_mon.tar.gz --listed-incremental=logs_backup.snar /var/log
+sudo tar czvf logs_backup_tues.tar.gz --listed-incremental=logs_backup.snar /var/log
+
+Cron job for backing up the /var/log/auth.log file: 0 6 * * 3 tar -czf /var/log/auth_backup.tgz /var/log/auth.log
+
+Brace expansion command to create the four subdirectories: sudo mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
+
+System.sh script edits below:
+#!/bin/bash
+free -h > ~/backups/freemem/free_mem.txt
+du -h > ~/backups/diskuse/disk_usage.txt
+lsof > ~/backups/openlist/open_list.txt
+df -h > ~/backups/freedisk/free_disk.txt
+
+Command to make the system.sh script executable: sudo chmod +x system.sh
+
+Commands to test the script and confirm its execution:
+sudo ./system.sh
+cat ~/backups/freemem/free_mem.txt
+	cat ~/backups/diskuse/disk_usage.txt
+	cat ~/backups/openlist/open_list.txt
+	cat ~/backups/freedisk/free_disk.txt
+
+Command to copy system to system-wide cron directory: sudo cp system.sh /etc/cron.weekly/
+
+Configure a log rotation scheme that backs up authentication messages to the /var/log/auth.log.  Add your config file edits below:
+ /var/log/auth.log {
+        missingok 
+        weekly
+        rotate 7
+        notifempty
+        compress
+        delaycompress
+        endscript
+} 
+
+Command to verify auditd is active: systemctl status auditd
+
+Command to set number of retained logs and maximum log file size.  Add the edits made to the configuration file below:
+num_logs = 7
+max_log_file = 35
+
+Command using auditd to set rules for /etc/shadow, /etc/passwd and /var/log/auth.log:  Add the edits made to the rules file below:
+-w /etc/shadow -p wra -k hashpass_audit
+-w /etc/passwd -p wra -k userpass_audit
+-w /var/log/auth.log -p wra -k authlog_audit
+
+Command to restart auditd:sudo systemctl restart auditd
+
+Command to list all auditd rules: sudo auditctl -l
+
+Command to produce an audit report for all user authentications: sudo aureport -au
+
+Create a user with sudo useradd attacker and produce an audit report that lists account modifications: sudo aureport -m
+
+Command to use auditd to watch /var/log/cron: sudo auditctl -w /var/log/cron
+
+Command to verify auditd rules: sudo auditctl -l
+
+Command to return journalctl messages with priorities from emergency to error since the current system boot: sudo journalctl -p 3 -b
+
+Command to check the disk usage of the system journal unit since the most recent boot: sudo journalctl -u systemd-journald -b
+
+Command to remove all archived journal files except the most recent two: sudo journalctl --vacuum-files=2
+
+Command to filter all log messages with priority levels between zero and two, and save output to /home/sysadmin/Priority_High.txt: sudo journalctl -p 2 >> /home/sysadmin/Priority_High.txt
+
+Command to automate the last command in a daily cronjob. Add the edits made to the crontab file below: 0 0 * * * sudo journalctl -p 2 >> /home/sysadmin/Priority_High.txt 
+
+

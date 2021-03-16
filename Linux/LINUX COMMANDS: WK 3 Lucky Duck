@@ -1,0 +1,16 @@
+LINUX COMMANDS: WK 3 Lucky Duck
+
+Roulette_dealer_finder_by_time_sh
+#!/bin/bash
+grep 'AM\|PM' *_Dealer_schedule > roulette.dealer1
+awk -F' ' '{print $1, $2, $5, $6}' roulette.dealer1 > roulette.dealer2
+grep $1_Dealer roulette.dealer2 > roulette.dealer3
+grep schedule:$2 roulette.dealer3 > roulette.dealer4
+awk -F' ' '{print $2}' roulette.dealer4 | grep $3 roulette.dealer4 > results.roulette_dealer_finder_by_time
+
+Roulette_dealer_finder_by_time_and_game_sh
+#!/bin/bash
+grep 'AM\|PM' *_Dealer_schedule > finder.dealer1
+grep $1_Dealer finder.dealer1 > finder.dealer2
+grep schedule:$2 finder.dealer2 > finder.dealer3
+awk -F' ' '{print $2}' finder.dealer3 | grep $3 finder.dealer3 > results.roulette_dealer_finder_by_time_and_game
