@@ -185,7 +185,7 @@ Take a screenshot of the result.
 
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
-See: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/README/Images/Bonus%20question%20-%20Unit%2013%20ELK%20Stack%20Deployment.pdf
+See: https://github.com/MadelineXCyber/Unit-13-Automated-ELK-Stack-Deployment/blob/main/Images/Bonus%20question%20-%20Unit%2013%20ELK%20Stack%20Deployment.pdf
 
 
 
